@@ -4,7 +4,7 @@
 - Dashboard
 - Bitcoin Details
 - Bitcoin Umrechner
-- Bitcoin Dioagram
+- Bitcoin Diaagram
 - Mein Bitcoin
 
 ## Features
@@ -18,13 +18,14 @@
 - Marktkapitalisierung (marketcap)
 - Anzahl aller Bitcoins im Umlauf (totalbc)
 - Anzahl der Transaktionen in den letzten 24h (24hrtransactioncount)
--  Anzahl gesendeter Bitcoin in den letzten 24h (24hrbtcsent)
+- Anzahl gesendeter Bitcoin in den letzten 24h (24hrbtcsent)
 - Aktuelle Hashrate (hashrate)
 - Aktueller Schwierigkeitsgrad (getdifficulty)
 ### Bitcoin Umrechner
 - Die View erlaubt eine Eingabe in EUR, USD, AUD, NZD und GBP
 - Output: Angezeigt wird der umgerechnete Betrag in BTC (Bitcoin)
 ### Bitcoin Diagramm
+- sinnvolles Diagramm anzeigen
 
 
 ### Meine Bitcoin
