@@ -4,10 +4,8 @@
 - Dashboard
 - Bitcoin Details
 - Bitcoin Umrechner
-
-## Menüelemente
-- Startseite
-
+- Bitcoin Dioagram
+- Mein Bitcoin
 
 ## Features
 ### Dashboard
