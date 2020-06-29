@@ -8,7 +8,7 @@ class CurrencySelect extends Component {
     super(props);
  
     this.state = {
-      hits: [],
+      currencys: [],
     };
   }
   
@@ -16,28 +16,20 @@ class CurrencySelect extends Component {
   componentDidMount() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
-      .then((jsonData) => {
-        // jsonData is parsed json object received from url
-        
-        console.log(jsonData);
-        for(let Currency in jsonData){
-          console.log(Currency);
-          console.log(jsonData[Currency].buy);
-          console.log(jsonData.Currency);
-        }
-        
-      })
+      .then(data => this.setState( data ));
   }
  
 
   
   render() {
-    const jsonData  = this.state;
+    const currencys  = this.state;
 
-    console.log(jsonData);
+    console.log("Data:")
+    console.log(currencys);
  
     return (
       <ul>
+        
       </ul>
     );
   }
