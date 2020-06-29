@@ -19,9 +19,13 @@ class CurrencySelect extends Component {
       .then(response => response.json())
       .then(data => this.setState( data ));
   }
+  
  
   render() {
     const currencys : any = this.state;
+
+    //const [ currencys, setCurrency ] = useState<any>('EUR');
+    //const [ currencys, setCurrency ] = useState<any>(this.state);
 
 
 
@@ -36,13 +40,15 @@ class CurrencySelect extends Component {
     }());
   
 
-    
+    function setCurrency( cur : string ){
+      console.log("selected " + cur);
+    }
     
  
     return (
       <IonItem>
           <IonLabel>Currency:</IonLabel>
-          <IonSelect interface="popover" value='BitcoinPrice.Currency' onIonChange={e => "setCurrency('e.detail.value')"}>
+          <IonSelect interface="popover" value='BitcoinPrice.Currency' onIonChange={e => setCurrency(e.detail.value)}>
           
           {listCurrencys}
           
