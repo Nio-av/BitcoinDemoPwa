@@ -10,7 +10,6 @@ class CurrencySelect extends Component {
     super(props);
  
     this.state = {
-      currencys: [],
     };
   }
   
@@ -24,18 +23,13 @@ class CurrencySelect extends Component {
   render() {
     const currencys : any = this.state;
 
-    console.log("Data:")
-    console.log(currencys);
 
-    for(let cur in currencys){
-      console.log(cur);
-      console.log(currencys[cur].buy)
-    }
 
     var listCurrencys = (function () {
       var entitys = [];
+      console.log(currencys);
       for (let Currency in currencys) {
-          entitys.push(<IonSelectOption value={Currency}>{Currency}</IonSelectOption>);
+        entitys.push(<IonSelectOption value={Currency}>{Currency}</IonSelectOption>);
       }
   
       return entitys;
