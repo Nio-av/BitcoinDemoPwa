@@ -1,6 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSelectOption, IonItem, IonLabel, IonSelect } from '@ionic/react';
 import React from 'react';
 import CurrencySelector from '../components/CurrencySelector';
+import CurrencySelect from '../components/CurrencySelect';
 import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
@@ -25,7 +26,7 @@ const Dashboard: React.FC = () => {
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
 
-        <CurrencySelector></CurrencySelector>
+        <CurrencySelect></CurrencySelect>
 
       </IonHeader>
 
