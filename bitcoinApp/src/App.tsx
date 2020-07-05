@@ -3,6 +3,7 @@ import Page from './pages/Page';
 import Dashboard from './pages/Dashboard';
 import NewDashboard from './pages/NewDashboard';
 import DashboardWithCurrencySelector from './pages/DashboardWithCurrencySelector';
+import BitcoinDetails from './pages/BitcoinDetails';
 import React from 'react';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -39,6 +40,7 @@ const App: React.FC = () => {
             <Route path="/dashboard" component={Dashboard} exact />
             <Route path="/newdashboard" component={NewDashboard} exact />
             <Route path="/DashboardWithCurrencySelector" component={DashboardWithCurrencySelector} exact />
+            <Route path="/details" component={BitcoinDetails} exact />
             <Redirect from="/" to="/Dashboard" exact />
           </IonRouterOutlet>
         </IonSplitPane>
