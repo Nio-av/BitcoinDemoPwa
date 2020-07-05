@@ -1,13 +1,33 @@
 # BitcoinDemoPwa
 
-## Screens
+## Install Instructions
+This is a React Project with Ionic Components.
+
+To run this projet, you´ll need:
+- NPM
+- React
+- Ionic
+
+This Project is a demo projekt. Not all Features are includet yet.
+
+For local usage, you can just use ionic serve in bitcoinApp Directory
+
+## Known Issues
+- In local development, there is an Issue with Firefox Developer Edition. Normal Firefox works fine.
+- There are some TODO: - comments in the code.
+- Detail View is not completed jet. Console.log returns some Data.
+
+
+
+## Features
+
+### Screens
 - Dashboard
 - Bitcoin Details
 - Bitcoin Umrechner
 - Bitcoin Diaagram
 - Mein Bitcoin
 
-## Features
 ### Dashboard
 - Aktueller Bitcoin-Preis in unterschiedlichen Währungen
     - Verkaufspreis
