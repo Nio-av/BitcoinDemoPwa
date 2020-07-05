@@ -6,22 +6,16 @@ const DEFAULT_QUERY = 'ticker';
 
 var temp = "test";
 
-interface ContainerProps {
-  currencys: any;
-  currentCurrency : string;
-}
 
-var currencys : any;
-var currentCurrency : string;
  
-class CurrencySelect extends Component {
-  constructor(props : any, currency : any) {
-    super(props, currency);
+class CurrencySelect extends Component <{}, { currentCurrency: string, currencys : any }> {
+  constructor(props : any) {
+    super(props);
 
  
     this.state = {
       currencys : {},
-      currentCurrency
+      currentCurrency : ""
     };
   }
   
@@ -33,9 +27,11 @@ class CurrencySelect extends Component {
       .then(data => this.setState( {currencys : data} ));
   }
 
-  setMyCurrency( cur : string ){
+  setMyCurrency( cur : any ){
     console.log(cur);
-    //this.setState( {currentCurrency : cur })
+    console.log(this.state);
+    this.setState( {currentCurrency : cur });
+    //this.setState( {currentCurrency : cur} );  
   }
   
  
@@ -46,6 +42,7 @@ class CurrencySelect extends Component {
 
     //const [ currencys, setCurrency ] = useState<any>('EUR');
     //const [ currencys, setCurrency ] = useState<any>(this.state);
+    //const [ currentCurrency, setCurrentCurrency ] = useState<any>(this.state);
 
 
 
@@ -69,7 +66,7 @@ class CurrencySelect extends Component {
     return (
       <IonItem>
           <IonLabel>Currency:</IonLabel>
-          <IonSelect interface="popover" value='BitcoinPrice.Currency' onIonChange={e => this.setMyCurrency(e.detail.value)}>
+          <IonSelect interface="popover" value={this.state.currentCurrency} onIonChange={e => (this.setMyCurrency(e.detail.value) ) }>
           
           {listCurrencys}
           
@@ -84,8 +81,5 @@ class CurrencySelect extends Component {
 }
 
 
-export interface Props {
-  term: string;
-}
 
 export default CurrencySelect;
