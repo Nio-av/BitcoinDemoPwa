@@ -10,48 +10,23 @@ const DEFAULT_QUERY = 'ticker';
 
 
 
-class NewDashboard extends Component <{}, { currentCurrency: string, currencys : object }> {
-  constructor(props : any, currency : any) {
+class NewDashboard extends Component <{}, { currentCurrency: string }> {
+  constructor(props : any) {
     super(props);
 
  
     this.state = {
-      currencys : {},
       currentCurrency : ""
     };
   }
-
-  
-  
-  
- 
-  componentDidMount() {
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState( {currencys : data} ));
-  }
-
-  setMyCurrency( cur : string ){
-    this.setState( {currentCurrency : cur });
-  }
-
   
   
  
   render() {
-    const currencys : any = this.state;
+    
 
     var name = "keks";
 
-    var listCurrencys = (function () {
-      var entitys = [];
-      console.log(currencys);
-      for (let Currency in currencys.currencys) {
-        entitys.push(<IonSelectOption value={Currency}>{Currency}</IonSelectOption>);
-      }
-  
-      return entitys;
-    }());
  
     return (
       <IonPage>
