@@ -58,7 +58,7 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
 
 
   fetchViaApi(metric : string){
-      console.log("fetch " + metric);
+    console.log("fetch " + metric);
     fetch(API + DEFAULT_QUERY + metric)
     .then(response => response.json())
     .then(data => this.setState(
@@ -78,21 +78,20 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
   }
 
 
-
-  
-  
-
  
   render() {
-    const currencys : any = this.state;
+    const metrics : any = this.state;
 
-    var listCurrencys = (function () {
-      console.log(currencys);
-      /*
-      for (let Currency in currencys.currencys) {
-        entitys.push(<IonSelectOption value={marketcap}>{marketcap}</IonSelectOption>);
+    var listDetails = (function () {
+      var entitys = [];
+      console.log(metrics);
+      
+      for (let Currency in metrics) {
+        console.log(Currency);
+        entitys.push( <IonItem> <IonLabel>{Currency}</IonLabel> <IonBadge slot="end">22</IonBadge> </IonItem> );
       }
-      */
+      
+      return entitys;
   
     }());
 
@@ -116,10 +115,7 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
 
       <IonContent>
 
-        <IonItem>
-            <IonLabel>My Item</IonLabel>
-            <IonBadge slot="end">22</IonBadge>
-        </IonItem>
+        {listDetails}
     </IonContent>
     </IonPage>
         
