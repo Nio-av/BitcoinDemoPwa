@@ -4,7 +4,7 @@ import { IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/react';
 const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'ticker';
 
-class CurrencySelect extends Component <{}, { currentCurrency: string, currencys : any }> {
+class CurrencySelect extends Component <{}, { currentCurrency: string, currencys : object }> {
   constructor(props : any) {
     super(props);
 
@@ -23,7 +23,7 @@ class CurrencySelect extends Component <{}, { currentCurrency: string, currencys
       .then(data => this.setState( {currencys : data} ));
   }
 
-  setMyCurrency( cur : any ){
+  setMyCurrency( cur : string ){
     this.setState( {currentCurrency : cur });
   }
   
