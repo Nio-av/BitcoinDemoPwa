@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
 
-        <CurrencySelect></CurrencySelect>
+        <CurrencySelect />
 
       </IonHeader>
 
