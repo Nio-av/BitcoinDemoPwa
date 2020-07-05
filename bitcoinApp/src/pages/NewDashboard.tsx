@@ -7,10 +7,13 @@ const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'ticker';
 
 
+const eventhandler = (data : any) => {
+  data.preventDefault()
+  console.log("data")
+};
 
 
-
-class NewDashboard extends Component <{}, { currentCurrency: string }> {
+class NewDashboard extends Component <{}, { currentCurrency: any }> {
   constructor(props : any) {
     super(props);
 
@@ -19,13 +22,22 @@ class NewDashboard extends Component <{}, { currentCurrency: string }> {
       currentCurrency : ""
     };
   }
+
+  handleChange = (e : any) => {
+    console.log("change");
+  }
+
   
   
+
  
   render() {
     
 
     var name = "keks";
+
+    
+    
 
  
     return (
@@ -37,7 +49,6 @@ class NewDashboard extends Component <{}, { currentCurrency: string }> {
           </IonButtons>
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
-
         <CurrencySelect />
 
       </IonHeader>

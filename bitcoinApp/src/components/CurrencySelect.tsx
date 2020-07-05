@@ -1,8 +1,14 @@
 import React, { Component, useState } from 'react';
 import { IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/react';
+import NewDashboard from '../pages/NewDashboard'
  
 const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'ticker';
+
+interface OnChange {
+  onchange: any;
+}
+
 
 class CurrencySelect extends Component <{}, { currentCurrency: string, currencys : object }> {
   constructor(props : any) {
@@ -13,8 +19,15 @@ class CurrencySelect extends Component <{}, { currentCurrency: string, currencys
       currencys : {},
       currentCurrency : ""
     };
+
+    
   }
+
+
   
+  componentDidUpdate(prevProps : any) {
+    console.log("update");
+  }
   
  
   componentDidMount() {
@@ -23,7 +36,7 @@ class CurrencySelect extends Component <{}, { currentCurrency: string, currencys
       .then(data => this.setState( {currencys : data} ));
   }
 
-  setMyCurrency( cur : string ){
+  setMyCurrency = ( cur : string ) => {
     this.setState( {currentCurrency : cur });
   }
   
@@ -57,3 +70,6 @@ class CurrencySelect extends Component <{}, { currentCurrency: string, currencys
 
 
 export default CurrencySelect;
+export interface Props {
+  onChangew: string;
+}
