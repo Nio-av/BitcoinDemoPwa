@@ -98,7 +98,6 @@ class Dashboard extends Component <{}, { currentCurrency: any ,  currencys : obj
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={name} />
         <BitcoinPrice currentCurrency={currentCurrency} currencys={currencys} />
 
       </IonContent>
