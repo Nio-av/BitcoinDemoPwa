@@ -1,6 +1,6 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "Bitcoin",
+  "name": "Open Source Bitcoin PWA",
   "icons": [
     {
       "src": "assets/icon/favicon.png",
