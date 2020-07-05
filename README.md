@@ -16,7 +16,14 @@ For local usage, you can just use ionic serve in bitcoinApp Directory
 - In local development, there is an Issue with Firefox Developer Edition. Normal Firefox works fine.
 - There are some TODO: - comments in the code.
 - Detail View is not completed jet. Console.log returns some Data.
+- Screen "Bitcoin Umrechner", "Bitcoin Diagram" & "Mein Bitcoin" are missing.
 
+## Special Ionic Feature while running via Firebase etc.:
+- Offline Mode
+- Install Propt on iOS
+- Install Button
+
+(Hopefully, that is working... Not tested yet, but should be. Same code as in an other Project ;) )
 
 
 ## Features
@@ -25,7 +32,7 @@ For local usage, you can just use ionic serve in bitcoinApp Directory
 - Dashboard
 - Bitcoin Details
 - Bitcoin Umrechner
-- Bitcoin Diaagram
+- Bitcoin Diagram
 - Mein Bitcoin
 
 ### Dashboard
