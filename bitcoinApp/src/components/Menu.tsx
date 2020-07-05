@@ -30,18 +30,6 @@ const appPages: AppPage[] = [
     mdIcon: homeSharp
   },
   {
-    title: 'NewDashboard',
-    url: '/newdashboard',
-    iosIcon: homeOutline,
-    mdIcon: homeSharp
-  },
-  {
-    title: 'DashboardWithCurrencySelector',
-    url: '/DashboardWithCurrencySelector',
-    iosIcon: homeOutline,
-    mdIcon: homeSharp
-  },
-  {
     title: 'Details',
     url: '/details',
     iosIcon: paperPlaneOutline,

@@ -1,22 +1,81 @@
+import React, { Component, useState } from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSelectOption, IonItem, IonLabel, IonSelect } from '@ionic/react';
-import React from 'react';
-import CurrencySelect from '../components/CurrencySelect';
-import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import BitcoinPrice from '../components/BitcoinPrice'
+ 
+const API = 'https://api.blockchain.info/';
+const DEFAULT_QUERY = 'ticker';
 
-//const BitcoinPrice = require('https://blockchain.info/ticker');
+
+const eventhandler = (data : any) => {
+  data.preventDefault()
+  console.log("data")
+};
+
+var currentCurrency : string; 
+var currencys : any;
+
+
+class Dashboard extends Component <{}, { currentCurrency: any ,  currencys : object }> {
+  constructor(props : any) {
+    super(props);
+
+ 
+    this.state = {
+      currencys : {},
+      currentCurrency : ""
+    };
+
+    
+  }
+
 
   
+  componentDidUpdate(prevProps : any) {
+    console.log("update" + prevProps);
+  }
+  
+ 
+  componentDidMount() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState(
+          {currencys : data},
+          
+        ));
+  }
 
-const Dashboard: React.FC = () => {
+  setMyCurrency = ( cur : string ) => {
+    currentCurrency = cur;
+    this.setState( {currentCurrency : cur });
+  }
 
-  const { name } = useParams<{ name: string; }>();
 
+  
+  
 
+ 
+  render() {
+    const currencys : any = this.state;
 
-  return (
-    <IonPage>
+    var listCurrencys = (function () {
+      var entitys = [];
+      console.log(currencys);
+      for (let Currency in currencys.currencys) {
+        entitys.push(<IonSelectOption value={Currency}>{Currency}</IonSelectOption>);
+      }
+  
+      return entitys;
+    }());
+
+    var name = "Dashboard";
+
+    
+    
+
+ 
+    return (
+      <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
@@ -24,8 +83,12 @@ const Dashboard: React.FC = () => {
           </IonButtons>
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
-
-        <CurrencySelect />
+        <IonItem>
+            <IonLabel>Currency:</IonLabel>
+            <IonSelect interface="popover" value={this.state.currentCurrency} onIonChange={e => (this.setMyCurrency(e.detail.value) ) }>
+            {listCurrencys}
+            </IonSelect>
+        </IonItem>
 
       </IonHeader>
 
@@ -36,21 +99,16 @@ const Dashboard: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name={name} />
-        <IonCard>
-          <IonCardHeader>
-              <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-              <IonCardTitle>Verkaufspreis</IonCardTitle>
-            </IonCardHeader>
-
-            <IonCardContent>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </IonCardContent>
-          </IonCard>
+        <BitcoinPrice currentCurrency={currentCurrency} currencys={currencys} />
 
       </IonContent>
     </IonPage>
-  );
-};
+        
+        
+    );
+  }
+}
+
+
 
 export default Dashboard;
