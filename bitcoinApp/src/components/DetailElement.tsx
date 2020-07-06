@@ -26,34 +26,14 @@ class DetailElement extends Component <{metric : string  }, { metricValue: strin
     };
     
   }
-
-  componentDidUpdate(prevProps : any) {
-    console.log(this.state.metricValue);
-  }
-
-  setMetric = ( metric : string , value : any ) => {
-    console.log( metric + value);
-  }
-
-
-  fetchViaApi(metric : string){
-    //console.log("fetch " + metric);
-    fetch(API + DEFAULT_QUERY + metric)
+  
+ 
+  componentDidMount() {
+    fetch(API + DEFAULT_QUERY + this.props.metric)
     .then(response => response.text())
     .then(data => this.setState(
         {metricValue : data},
       ));
-    
-  }
-  
- 
-  componentDidMount() {
-
-    
-      this.fetchViaApi(this.props.metric);
-    
-
-    
   }
 
 
