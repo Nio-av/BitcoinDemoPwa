@@ -14,27 +14,6 @@ interface ContainerProps {
 
 var metricValue: string;
 
-/*
-
-fetch('https://api.blockchain.info/ticker')
-  .then(response => response.json())
-  .then((jsonData) => {
-    // jsonData is parsed json object received from url
-    console.log(jsonData);
-    BitcoinPrice = jsonData;
-    for(let Currency in BitcoinPrice){
-      console.log(Currency);
-      console.log(BitcoinPrice[Currency].buy);
-      console.log(BitcoinPrice.Currency);
-    }
-  })
-  .catch((error) => {
-    // handle your errors here
-    console.error(error)
-  })
-
-  */
-  
   
 
 class DetailElement extends Component <{metric : string  }, { metricValue: string}> {
@@ -48,6 +27,35 @@ class DetailElement extends Component <{metric : string  }, { metricValue: strin
     
   }
 
+  componentDidUpdate(prevProps : any) {
+    console.log(this.state.metricValue);
+  }
+
+  setMetric = ( metric : string , value : any ) => {
+    console.log( metric + value);
+  }
+
+
+  fetchViaApi(metric : string){
+    //console.log("fetch " + metric);
+    fetch(API + DEFAULT_QUERY + metric)
+    .then(response => response.text())
+    .then(data => this.setState(
+        {metricValue : data},
+      ));
+    
+  }
+  
+ 
+  componentDidMount() {
+
+    
+      this.fetchViaApi(this.props.metric);
+    
+
+    
+  }
+
 
   render() {
     const metric = this.props.metric;
@@ -55,7 +63,7 @@ class DetailElement extends Component <{metric : string  }, { metricValue: strin
     return (
       <IonItem>
         <IonLabel>{metric}</IonLabel>
-        <IonBadge slot="end">22</IonBadge>
+        <IonBadge slot="end">{(this.state.metricValue)}</IonBadge>
       </IonItem>
         
         
