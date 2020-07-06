@@ -50,7 +50,7 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
 
   
   componentDidUpdate(prevProps : any) {
-    console.log("update" + prevProps);
+    //console.log("update" + prevProps);
   }
 
   setMetric = ( metric : string , value : any ) => {
@@ -59,7 +59,7 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
 
 
   fetchViaApi(metric : string){
-    console.log("fetch " + metric);
+    //console.log("fetch " + metric);
     fetch(API + DEFAULT_QUERY + metric)
     .then(response => response.json())
     .then(data => this.setState(
@@ -85,11 +85,9 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
 
     var listDetails = (function () {
       var entitys = [];
-      console.log(metrics);
       
       for (let metric of metricsUrlStrings) {
-        //entitys.push( <IonItem> <IonLabel>{Currency}</IonLabel> <IonBadge slot="end">22</IonBadge> </IonItem> );
-        console.log(metric);
+        //console.log(metric);
         entitys.push( <DetailElement metric={metric} /> );
       }
       
