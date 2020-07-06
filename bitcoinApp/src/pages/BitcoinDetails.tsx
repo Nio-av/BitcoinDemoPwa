@@ -14,26 +14,18 @@ const metricsUrlStrings = [
 ]
 
 
-
-
-class BitcoinDetails extends Component <{}, { searchText : string }> {
+class BitcoinDetails extends Component <{}, { searchText : string | undefined }> {
   constructor(props : any) {
     super(props);
 
     this.state = {
       searchText : ""
     };
-    
-  }
-  setMyState( MySearchText : any) {
-    this.setState(
-      {searchText : MySearchText},
-    )
   }
 
  
   render() {
-    const searchText : string = this.state.searchText;
+    const searchText : any = this.state.searchText;
 
     var listDetails = (function () {
       var entitys = [];
@@ -65,7 +57,7 @@ class BitcoinDetails extends Component <{}, { searchText : string }> {
           </IonButtons>
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
-        <IonSearchbar value={this.state.searchText} onIonChange={e => ( this.setMyState( e.detail.value ) )}></IonSearchbar>
+        <IonSearchbar value={this.state.searchText} onIonChange={e => ( this.setState( {searchText : e.detail.value }, ) )}></IonSearchbar>
       </IonHeader>
 
       <IonContent>
