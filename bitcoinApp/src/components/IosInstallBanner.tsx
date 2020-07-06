@@ -1,7 +1,6 @@
-import { starOutline, star, construct, options } from 'ionicons/icons';
-import { share, add } from 'ionicons/icons';
+import { add } from 'ionicons/icons';
 import React, { useState } from 'react';
-import { IonToast, IonButton, IonContent, IonIcon } from '@ionic/react';
+import { IonToast } from '@ionic/react';
 
 
 

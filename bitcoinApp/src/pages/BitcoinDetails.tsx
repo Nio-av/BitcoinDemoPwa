@@ -1,13 +1,7 @@
-import React, { Component, useState } from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSelectOption, IonItem, IonLabel, IonSelect, IonBadge } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import BitcoinPrice from '../components/BitcoinPrice';
+import React, { Component } from 'react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import DetailElement from '../components/DetailElement';
  
-const API = 'https://api.blockchain.info/';
-const DEFAULT_QUERY = 'q/';
-
-
 
 
 const metricsUrlStrings = [
@@ -36,7 +30,6 @@ class BitcoinDetails extends Component <{}, { }> {
       var entitys = [];
       
       for (let metric of metricsUrlStrings) {
-        //console.log(metric);
         entitys.push( <DetailElement metric={metric} /> );
       }
       

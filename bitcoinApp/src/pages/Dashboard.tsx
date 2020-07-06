@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSelectOption, IonItem, IonLabel, IonSelect } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonSelectOption, IonItem, IonLabel, IonSelect } from '@ionic/react';
 import BitcoinPrice from '../components/BitcoinPrice'
  
 const API = 'https://api.blockchain.info/';
