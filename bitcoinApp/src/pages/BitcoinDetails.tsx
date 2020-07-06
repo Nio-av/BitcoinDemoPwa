@@ -1,7 +1,8 @@
 import React, { Component, useState } from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSelectOption, IonItem, IonLabel, IonSelect, IonBadge } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
-import BitcoinPrice from '../components/BitcoinPrice'
+import BitcoinPrice from '../components/BitcoinPrice';
+import DetailElement from '../components/DetailElement';
  
 const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'q/';
@@ -86,9 +87,10 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
       var entitys = [];
       console.log(metrics);
       
-      for (let Currency in metrics) {
-        console.log(Currency);
-        entitys.push( <IonItem> <IonLabel>{Currency}</IonLabel> <IonBadge slot="end">22</IonBadge> </IonItem> );
+      for (let metric of metricsUrlStrings) {
+        //entitys.push( <IonItem> <IonLabel>{Currency}</IonLabel> <IonBadge slot="end">22</IonBadge> </IonItem> );
+        console.log(metric);
+        entitys.push( <DetailElement metric={metric} /> );
       }
       
       return entitys;
@@ -114,7 +116,6 @@ class BitcoinDetails extends Component <{}, { metrics : any }> {
       </IonHeader>
 
       <IonContent>
-
         {listDetails}
     </IonContent>
     </IonPage>
