@@ -1,8 +1,6 @@
 import { IonItem, IonLabel, IonBadge } from '@ionic/react';
 import React, { Component } from 'react';
 
-//const BitcoinPrice = require('https://blockchain.info/ticker');
-
 const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'q/';
 
