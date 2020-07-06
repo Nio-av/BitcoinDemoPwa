@@ -8,12 +8,6 @@ const API = 'https://api.blockchain.info/';
 const DEFAULT_QUERY = 'q/';
 
 
-const eventhandler = (data : any) => {
-  data.preventDefault()
-  console.log("data")
-};
-
-var metrics : any; 
 
 
 const metricsUrlStrings = [
@@ -28,56 +22,11 @@ const metricsUrlStrings = [
 
 
 
-class BitcoinDetails extends Component <{}, { metrics : any }> {
+class BitcoinDetails extends Component <{}, { }> {
   constructor(props : any) {
     super(props);
-
- 
-    this.state = {
-      metrics : {
-        marketcap : "",
-        totalbc : "",
-        twentyFourTrtransactioncount : "",
-        twentyFourHrbtcsent : "",
-        hashrate : "",
-        getdifficulty : ""
-      }
-    };
-
     
   }
-
-
-  
-  componentDidUpdate(prevProps : any) {
-    //console.log("update" + prevProps);
-  }
-
-  setMetric = ( metric : string , value : any ) => {
-    console.log( metric + value);
-  }
-
-
-  fetchViaApi(metric : string){
-    //console.log("fetch " + metric);
-    fetch(API + DEFAULT_QUERY + metric)
-    .then(response => response.json())
-    .then(data => this.setState(
-        {metrics : data},
-      ));
-    
-  }
-  
- 
-  componentDidMount() {
-
-    for(let metric of metricsUrlStrings){
-        this.fetchViaApi(metric);
-    }
-
-    
-  }
-
 
  
   render() {
