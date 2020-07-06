@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonSearchbar } from '@ionic/react';
 import DetailElement from '../components/DetailElement';
  
 
@@ -16,21 +16,34 @@ const metricsUrlStrings = [
 
 
 
-class BitcoinDetails extends Component <{}, { }> {
+class BitcoinDetails extends Component <{}, { searchText : string }> {
   constructor(props : any) {
     super(props);
+
+    this.state = {
+      searchText : ""
+    };
     
+  }
+  setMyState( MySearchText : any) {
+    this.setState(
+      {searchText : MySearchText},
+    )
   }
 
  
   render() {
-    const metrics : any = this.state;
+    const searchText : string = this.state.searchText;
 
     var listDetails = (function () {
       var entitys = [];
+
+      
       
       for (let metric of metricsUrlStrings) {
-        entitys.push( <DetailElement metric={metric} /> );
+        if(metric.toLowerCase().includes(searchText.toLowerCase())){
+          entitys.push( <DetailElement metric={metric} /> );
+        }
       }
       
       return entitys;
@@ -52,7 +65,7 @@ class BitcoinDetails extends Component <{}, { }> {
           </IonButtons>
           <IonTitle>{name}</IonTitle>
         </IonToolbar>
-
+        <IonSearchbar value={this.state.searchText} onIonChange={e => ( this.setMyState( e.detail.value ) )}></IonSearchbar>
       </IonHeader>
 
       <IonContent>
