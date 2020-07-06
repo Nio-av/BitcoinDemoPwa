@@ -15,7 +15,6 @@ For local usage, you can just use ionic serve in bitcoinApp Directory
 ## Known Issues
 - In local development, there is an Issue with Firefox Developer Edition. Normal Firefox works fine.
 - There are some TODO: - comments in the code.
-- Detail View is not completed jet. Console.log returns some Data.
 - Screen "Bitcoin Umrechner", "Bitcoin Diagram" & "Mein Bitcoin" are missing.
 
 ## Special Ionic Feature while running via Firebase etc.:
@@ -39,7 +38,7 @@ For local usage, you can just use ionic serve in bitcoinApp Directory
 - Aktueller Bitcoin-Preis in unterschiedlichen Währungen
     - Verkaufspreis
     - Einzelpreis
-- Das Dashboard wird bei Eingabe unter "Main Bitcoin" um eine weitere Anzeige erweitert. Hier sieht er ab sofort wie viel Bitcoin er hat und was diese aktuell in EUR Wert ist.
+- Das Dashboard wird bei Eingabe unter "Mein Bitcoin" um eine weitere Anzeige erweitert. Hier sieht er ab sofort wie viel Bitcoin er hat und was diese aktuell in EUR Wert ist.
 
 ### Bitcoin Details
 - Marktkapitalisierung (marketcap)
