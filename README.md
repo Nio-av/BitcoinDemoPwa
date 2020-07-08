@@ -15,7 +15,8 @@ For local usage, you can just use ionic serve in bitcoinApp Directory
 ## Known Issues
 - In local development, there is an Issue with Firefox Developer Edition. Normal Firefox works fine.
 - There are some TODO: - comments in the code.
-- Screen "Bitcoin Umrechner", "Bitcoin Diagram" & "Mein Bitcoin" are missing.
+- Screen "Bitcoin Umrechner" is not yet working as expected. There are hundrets of API-Calls / second. There also is a problem in reacte state with currency. See "TODO" in CalculatorElement Component
+- Screen "Bitcoin Diagram" & "Mein Bitcoin" are missing.
 
 ## Special Ionic Feature while running via Firebase etc.:
 - Offline Mode
