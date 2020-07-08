@@ -68,7 +68,10 @@ class Calculator extends Component <{}, { currentCurrency: any ,  currencys : ob
       return entitys;
     }());
 
-    var name = "Calculator";    
+    var name = "Calculator";
+
+    
+    
 
  
     return (
@@ -95,7 +98,7 @@ class Calculator extends Component <{}, { currentCurrency: any ,  currencys : ob
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <CalculatorElement currentCurrency={currentCurrency} currencys={currencys} />
+        <CalculatorElement currentCurrency={currentCurrency} />
 
       </IonContent>
     </IonPage>

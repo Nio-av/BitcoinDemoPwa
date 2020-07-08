@@ -1,62 +1,54 @@
-import React, {useState} from 'react';
+import React, {useState , Component } from 'react';
 import {  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput } from '@ionic/react';
 
 
 
-interface ContainerProps {
-    currentCurrency: string;
-    currencys: any;
-  }
-
-var symbol : string;
-var buy : number;
-var sell : number;
-var last : number;
-var fifteenM : number;
+const API = 'https://api.blockchain.info/';
+const DEFAULT_QUERY = 'tobtc?currency=';
 
 
 
+class CalculatorElement extends Component <{currentCurrency : string  }, { currentCurrency: string , inputCurrencyValue : number}> {
+//const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
 
-
-
-const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
-    var selectedCurrency = currencys.currencys[currentCurrency];
-
-    const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
+    constructor(props : any, currentCurrency : string, inputCurrencyValue : number ) {
+        super(props);
     
-    try{
-        symbol = selectedCurrency.symbol;
-        buy = selectedCurrency.buy;
-        sell = selectedCurrency.sell;
-        last = selectedCurrency.last;
-        // fifteenM = selectedCurrency.15m;
-        // TODO: fix 15m issue (Parsing error: An identifier or keyword cannot immediately follow a numeric literal)
-    } catch{
-        //this is a fallback if API-Request fails
-    }
-
-
-
-    console.log("keks" + inputCurrencyValue);
-    
-
-
-    console.log(currencys);
-
-    return (
-        <IonCard>
-            <IonCardHeader>
-    <IonCardTitle>Currency Calculator: Bitcoin to {currentCurrency}</IonCardTitle>
-            </IonCardHeader>
-            <IonItem>
-                <IonInput type="number" value={inputCurrencyValue} placeholder="Enter Input" onIonChange={e => setInputCurrencyValue(parseInt(e.detail.value!, 10))} clearInput></IonInput>
-            </IonItem>
-            <IonCardContent>
-                <p>{inputCurrencyValue} {currentCurrency} entsprchen XXXX Bitcoin</p>
-            </IonCardContent>
-        </IonCard>
         
-    );
+        this.state = {
+            currentCurrency : "",
+            inputCurrencyValue
+        };
+        
+      }
+
+    render () {
+        //var selectedCurrency = this.props.currentCurrency;
+
+        //const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
+    
+
+
+        //console.log("keks" + inputCurrencyValue);
+        
+
+
+
+        return (
+            <IonCard>
+                <IonCardHeader>
+        <IonCardTitle>Currency Calculator: Bitcoin to {this.state.currentCurrency}</IonCardTitle>
+                </IonCardHeader>
+                <IonItem>
+                    <IonInput type="number" value={this.state.inputCurrencyValue} placeholder="Enter Input" onIonChange={e => this.setState( {inputCurrencyValue : (parseInt(e.detail.value!, 10)) }  )} clearInput></IonInput>
+                </IonItem>
+                <IonCardContent>
+                    <p>{this.state.inputCurrencyValue} {this.state.currentCurrency} entsprechen XXXX Bitcoin</p>
+                </IonCardContent>
+            </IonCard>
+            
+        );
+    }
 };
 
 
