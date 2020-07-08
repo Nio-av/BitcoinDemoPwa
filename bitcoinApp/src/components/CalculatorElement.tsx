@@ -52,7 +52,7 @@ const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , curren
                 <IonInput type="number" value={inputCurrencyValue} placeholder="Enter Input" onIonChange={e => setInputCurrencyValue(parseInt(e.detail.value!, 10))} clearInput></IonInput>
             </IonItem>
             <IonCardContent>
-                <p>Buy: {buy}</p>
+                <p>{inputCurrencyValue} {currentCurrency} entsprchen XXXX Bitcoin</p>
             </IonCardContent>
         </IonCard>
         
