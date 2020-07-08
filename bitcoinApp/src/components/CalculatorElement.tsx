@@ -1,5 +1,5 @@
-import React from 'react';
-import {  IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
+import React, {useState} from 'react';
+import {  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput } from '@ionic/react';
 
 
 
@@ -21,6 +21,8 @@ var fifteenM : number;
 
 const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
     var selectedCurrency = currencys.currencys[currentCurrency];
+
+    const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
     
     try{
         symbol = selectedCurrency.symbol;
@@ -33,7 +35,9 @@ const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , curren
         //this is a fallback if API-Request fails
     }
 
-    console.log("keks" + currentCurrency);
+
+
+    console.log("keks" + inputCurrencyValue);
     
 
 
@@ -44,10 +48,11 @@ const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , curren
             <IonCardHeader>
     <IonCardTitle>Currency Calculator: Bitcoin to {currentCurrency}</IonCardTitle>
             </IonCardHeader>
+            <IonItem>
+                <IonInput type="number" value={inputCurrencyValue} placeholder="Enter Input" onIonChange={e => setInputCurrencyValue(parseInt(e.detail.value!, 10))} clearInput></IonInput>
+            </IonItem>
             <IonCardContent>
                 <p>Buy: {buy}</p>
-                <p>Sell: {sell}</p>
-                <p>Last: {last}</p>
             </IonCardContent>
         </IonCard>
         
