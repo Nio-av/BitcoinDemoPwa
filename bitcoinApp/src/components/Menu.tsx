@@ -36,7 +36,7 @@ const appPages: AppPage[] = [
     mdIcon: searchSharp
   },
   {
-    title: 'Umrechner',
+    title: 'Umrechner (WIP)',
     url: '/calculator',
     iosIcon: calculatorOutline,
     mdIcon: calculatorSharp
