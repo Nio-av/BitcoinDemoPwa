@@ -98,7 +98,7 @@ class Calculator extends Component <{}, { currentCurrency: any ,  currencys : ob
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <CalculatorElement currentCurrency={currentCurrency} />
+        <CalculatorElement currentCurrency={this.state.currentCurrency} />
 
       </IonContent>
     </IonPage>

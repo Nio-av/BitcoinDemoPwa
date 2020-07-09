@@ -16,31 +16,34 @@ class CalculatorElement extends Component <{currentCurrency : string  }, { curre
     
         
         this.state = {
-            currentCurrency : "",
+            currentCurrency,
             inputCurrencyValue,
             calculatedBitcoinValue
         };
         
       }
 
-      componentDidUpdate() {
-        //TODO: there is an extreme amount of api-calls. (hundrets / second.)
-
-          //TODO: this.props.currentCurrency is undefined
-          // Replace with currency of choise to calculate
+   
+      
+      componentDidMount() {
+        //TODO: Detect change of currency
+        // Replace with currency of choise to calculate
+        //ComponentDidUpdate works - but calls api hundret of times
         fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue )
         .then(response => response.text())
         .then(data => this.setState(
             {calculatedBitcoinValue : data},
           ));
       }
+      //*/
+    
 
     render () {
         //var selectedCurrency = this.props.currentCurrency;
 
         //const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
         
-
+        
 
         //console.log("keks" + inputCurrencyValue);
         
@@ -50,13 +53,13 @@ class CalculatorElement extends Component <{currentCurrency : string  }, { curre
         return (
             <IonCard>
                 <IonCardHeader>
-        <IonCardTitle>Currency Calculator: Bitcoin to {this.state.currentCurrency}</IonCardTitle>
+        <IonCardTitle>Currency Calculator: Bitcoin to {this.props.currentCurrency}</IonCardTitle>
                 </IonCardHeader>
                 <IonItem>
                     <IonInput type="number" value={this.state.inputCurrencyValue} placeholder="Enter Input" onIonChange={e => this.setState( {inputCurrencyValue : (parseInt(e.detail.value!, 10)) }  )} clearInput></IonInput>
                 </IonItem>
                 <IonCardContent>
-                    <p>{this.state.inputCurrencyValue} {this.state.currentCurrency} entsprechen {this.state.calculatedBitcoinValue} Bitcoin</p>
+                    <p>{this.state.inputCurrencyValue} {this.props.currentCurrency} entsprechen {this.state.calculatedBitcoinValue} Bitcoin</p>
                 </IonCardContent>
             </IonCard>
             
