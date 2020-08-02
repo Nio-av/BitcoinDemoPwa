@@ -1,5 +1,5 @@
-import React, {useState , Component } from 'react';
-import {  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput } from '@ionic/react';
+import React, { useState, Component } from 'react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput } from '@ionic/react';
 
 
 
@@ -8,61 +8,61 @@ const DEFAULT_QUERY = 'tobtc?currency=';
 
 
 
-class CalculatorElement extends Component <{currentCurrency : string  }, { currentCurrency: string , inputCurrencyValue : number, calculatedBitcoinValue : string}> {
-//const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
+class CalculatorElement extends Component<{ currentCurrency: string }, { currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string }> {
+    //const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
 
-    constructor(props : any, currentCurrency : string, inputCurrencyValue : number, calculatedBitcoinValue : string ) {
+    constructor(props: any, currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string) {
         super(props);
-    
-        
+
+
         this.state = {
             currentCurrency,
             inputCurrencyValue,
             calculatedBitcoinValue
         };
-        
-      }
 
-   
-      
-      componentDidMount() {
+    }
+
+
+
+    componentDidMount() {
         //TODO: Detect change of currency
         // Replace with currency of choise to calculate
         //ComponentDidUpdate works - but calls api hundret of times
-        fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue )
-        .then(response => response.text())
-        .then(data => this.setState(
-            {calculatedBitcoinValue : data},
-          ));
-      }
-      //*/
-    
+        fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue)
+            .then(response => response.text())
+            .then(data => this.setState(
+                { calculatedBitcoinValue: data },
+            ));
+    }
+    //*/
 
-    render () {
+
+    render() {
         //var selectedCurrency = this.props.currentCurrency;
 
         //const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
-        
-        
+
+
 
         //console.log("keks" + inputCurrencyValue);
-        
+
 
 
 
         return (
             <IonCard>
                 <IonCardHeader>
-        <IonCardTitle>Currency Calculator: Bitcoin to {this.props.currentCurrency}</IonCardTitle>
+                    <IonCardTitle>Currency Calculator: Bitcoin to {this.props.currentCurrency}</IonCardTitle>
                 </IonCardHeader>
                 <IonItem>
-                    <IonInput type="number" value={this.state.inputCurrencyValue} placeholder="Enter Input" onIonChange={e => this.setState( {inputCurrencyValue : (parseInt(e.detail.value!, 10)) }  )} clearInput></IonInput>
+                    <IonInput type="number" value={this.state.inputCurrencyValue} placeholder="Enter Input" onIonChange={e => this.setState({ inputCurrencyValue: (parseInt(e.detail.value!, 10)) })} clearInput></IonInput>
                 </IonItem>
                 <IonCardContent>
                     <p>{this.state.inputCurrencyValue} {this.props.currentCurrency} entsprechen {this.state.calculatedBitcoinValue} Bitcoin</p>
                 </IonCardContent>
             </IonCard>
-            
+
         );
     }
 };
