@@ -25,8 +25,8 @@ class CalculatorElement extends Component<{ currentCurrency: string }, { current
 
     componentDidUpdate(previousProps : any , previousState : any){
         //console.log(previousProps.currentCurrency);
-        ///*
-        if (previousProps.currentCurrency !== this.props.currentCurrency ) {
+        
+        if (previousProps.currentCurrency !== this.props.currentCurrency || previousState.inputCurrencyValue !== this.state.inputCurrencyValue) {
             console.log("CC: " + this.props.currentCurrency);
             console.log("CV: " + this.state.inputCurrencyValue);
             fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue)
@@ -37,19 +37,6 @@ class CalculatorElement extends Component<{ currentCurrency: string }, { current
         }
         //*/
     }
-
-    componentDidMount() {
-        //TODO: Detect change of currency
-        // Replace with currency of choise to calculate
-        //ComponentDidUpdate works - but calls api hundret of times
-        console.log("mount");
-        fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue)
-            .then(response => response.text())
-            .then(data => this.setState(
-                { calculatedBitcoinValue: data },
-            ));
-    }
-    //*/
 
 
     render() {
