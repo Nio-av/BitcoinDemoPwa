@@ -30,12 +30,6 @@ class Calculator extends Component<{}, { currentCurrency: any, currencys: object
   }
 
 
-
-  componentDidUpdate(prevProps: any) {
-    console.log("update" + prevProps);
-  }
-
-
   componentDidMount() {
     fetch(API + DEFAULT_QUERY)
       .then(response => response.json())
@@ -60,7 +54,6 @@ class Calculator extends Component<{}, { currentCurrency: any, currencys: object
 
     var listCurrencys = (function () {
       var entitys = [];
-      console.log(currencys);
       for (let Currency in currencys.currencys) {
         entitys.push(<IonSelectOption value={Currency}>{Currency}</IonSelectOption>);
       }
@@ -85,7 +78,7 @@ class Calculator extends Component<{}, { currentCurrency: any, currencys: object
           </IonToolbar>
           <IonItem>
             <IonLabel>Currency:</IonLabel>
-            <IonSelect interface="popover" value={this.state.currentCurrency} onIonChange={e => (this.setMyCurrency(e.detail.value))}>
+            <IonSelect interface="popover" onIonChange={e => (this.setMyCurrency(e.detail.value))}>
               {listCurrencys}
             </IonSelect>
           </IonItem>

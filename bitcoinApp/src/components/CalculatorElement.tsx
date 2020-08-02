@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput } from '@ionic/react';
 
 
@@ -9,11 +9,9 @@ const DEFAULT_QUERY = 'tobtc?currency=';
 
 
 class CalculatorElement extends Component<{ currentCurrency: string }, { currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string }> {
-    //const CalculatorElement : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
 
     constructor(props: any, currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string) {
         super(props);
-
 
         this.state = {
             currentCurrency,
@@ -24,38 +22,22 @@ class CalculatorElement extends Component<{ currentCurrency: string }, { current
     }
 
     componentDidUpdate(previousProps: any, previousState: any) {
-        //console.log(previousProps.currentCurrency);
-        if ( !isNaN(this.state.inputCurrencyValue) ) {
-
+        //avoid API Calls before any value has been set
+        if ( !isNaN(this.state.inputCurrencyValue) && this.props.currentCurrency !== "" ) {
+            //avoid infinity loop
             if (previousProps.currentCurrency !== this.props.currentCurrency || previousState.inputCurrencyValue !== this.state.inputCurrencyValue) {
-
-                console.log("CC: " + this.props.currentCurrency);
-                console.log("CV: " + this.state.inputCurrencyValue);
+                // get calculated Data from BITCOIN API
                 fetch(API + DEFAULT_QUERY + this.props.currentCurrency + '&value=' + this.state.inputCurrencyValue)
                     .then(response => response.text())
                     .then(data => this.setState(
                         { calculatedBitcoinValue: data },
                     ));
-
-
             }
         }
-        //*/
     }
 
 
     render() {
-        //var selectedCurrency = this.props.currentCurrency;
-
-        //const [inputCurrencyValue, setInputCurrencyValue] = useState<number>();
-
-
-
-        //console.log("keks" + inputCurrencyValue);
-
-
-
-
         return (
             <IonCard>
                 <IonCardHeader>
