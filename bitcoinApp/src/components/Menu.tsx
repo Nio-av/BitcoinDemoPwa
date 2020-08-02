@@ -42,7 +42,7 @@ const appPages: AppPage[] = [
     mdIcon: calculatorSharp
   },
   {
-    title: 'Diagram',
+    title: 'Diagram (Alpha, WIP)',
     url: '/diagram',
     iosIcon: trendingUpOutline,
     mdIcon: trendingUpSharp
