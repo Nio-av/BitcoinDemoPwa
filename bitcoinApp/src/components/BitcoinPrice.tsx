@@ -1,26 +1,26 @@
 import React from 'react';
-import {  IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
 
 
 
 interface ContainerProps {
     currentCurrency: string;
     currencys: any;
-  }
+}
 
-var symbol : string;
-var buy : number;
-var sell : number;
-var last : number;
-var fifteenM : number;
-
-
+var symbol: string;
+var buy: number;
+var sell: number;
+var last: number;
+var fifteenM: number;
 
 
-const BitcoinPrice : React.FC<ContainerProps> = ({ currentCurrency , currencys} )=> {
+
+
+const BitcoinPrice: React.FC<ContainerProps> = ({ currentCurrency, currencys }) => {
     var selectedCurrency = currencys.currencys[currentCurrency];
-    
-    try{
+
+    try {
         symbol = selectedCurrency.symbol;
         buy = selectedCurrency.buy;
         sell = selectedCurrency.sell;
@@ -31,8 +31,8 @@ const BitcoinPrice : React.FC<ContainerProps> = ({ currentCurrency , currencys} 
         //this is a fallback if API-Request fails
     }
 
-    
-    
+
+
 
 
     console.log(currencys);
@@ -40,7 +40,7 @@ const BitcoinPrice : React.FC<ContainerProps> = ({ currentCurrency , currencys} 
     return (
         <IonCard>
             <IonCardHeader>
-    <IonCardTitle>Bitcoin Price {currentCurrency} {symbol}</IonCardTitle>
+                <IonCardTitle>Bitcoin Price {currentCurrency} {symbol}</IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
                 <p>Buy: {buy}</p>
@@ -48,7 +48,7 @@ const BitcoinPrice : React.FC<ContainerProps> = ({ currentCurrency , currencys} 
                 <p>Last: {last}</p>
             </IonCardContent>
         </IonCard>
-        
+
     );
 };
 

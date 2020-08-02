@@ -22,7 +22,7 @@ class CalculatorElement extends Component<{ currentCurrency: string }, { inputCu
 
     componentDidUpdate(previousProps: any, previousState: any) {
         //avoid API Calls before any value has been set
-        if ( !isNaN(this.state.inputCurrencyValue) && this.props.currentCurrency !== "" ) {
+        if (!isNaN(this.state.inputCurrencyValue) && this.props.currentCurrency !== "") {
             //avoid infinity loop
             if (previousProps.currentCurrency !== this.props.currentCurrency || previousState.inputCurrencyValue !== this.state.inputCurrencyValue) {
                 // get calculated Data from BITCOIN API

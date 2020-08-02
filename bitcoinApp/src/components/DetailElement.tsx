@@ -7,37 +7,37 @@ const DEFAULT_QUERY = 'q/';
 
 
 
-class DetailElement extends Component <{metric : string  }, { metricValue: string}> {
-  constructor(props : any, metricValue : string) {
+class DetailElement extends Component<{ metric: string }, { metricValue: string }> {
+  constructor(props: any, metricValue: string) {
     super(props);
 
-    
+
     this.state = {
-      metricValue : ""
+      metricValue: ""
     };
-    
+
   }
-  
- 
+
+
   componentDidMount() {
     fetch(API + DEFAULT_QUERY + this.props.metric)
-    .then(response => response.text())
-    .then(data => this.setState(
-        {metricValue : data},
+      .then(response => response.text())
+      .then(data => this.setState(
+        { metricValue: data },
       ));
   }
 
 
   render() {
     const metric = this.props.metric;
- 
+
     return (
       <IonItem>
         <IonLabel>{metric}</IonLabel>
         <IonBadge slot="end">{(this.state.metricValue)}</IonBadge>
       </IonItem>
-        
-        
+
+
     );
   }
 }
