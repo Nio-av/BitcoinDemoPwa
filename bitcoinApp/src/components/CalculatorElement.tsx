@@ -8,13 +8,12 @@ const DEFAULT_QUERY = 'tobtc?currency=';
 
 
 
-class CalculatorElement extends Component<{ currentCurrency: string }, { currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string }> {
+class CalculatorElement extends Component<{ currentCurrency: string }, { inputCurrencyValue: number, calculatedBitcoinValue: string }> {
 
     constructor(props: any, currentCurrency: string, inputCurrencyValue: number, calculatedBitcoinValue: string) {
         super(props);
 
         this.state = {
-            currentCurrency,
             inputCurrencyValue,
             calculatedBitcoinValue
         };
